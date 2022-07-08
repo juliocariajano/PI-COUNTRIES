@@ -4,7 +4,7 @@ export function get_countries()
 {
     return async function(dispatch)
     {
-        const json = await axios.get('http://localhost:3001/countries/')             
+        const json = await axios.get('/countries/')             
         return dispatch(
         {
             type: 'GET_COUNTRIES',
@@ -23,7 +23,7 @@ export function onSearchByName(name)
 {
     return async function(dispatch){
     try{
-        var json = await axios.get('http://localhost:3001/countries?name=' + name)            
+        var json = await axios.get('/countries?name=' + name)            
         return dispatch(
         {
             type: 'SEARCHBYNAME',
@@ -40,7 +40,7 @@ export function deleteAct(name)
 {
     return async function(dispatch){
     try{
-        var json = await axios.delete('http://localhost:3001/delete?name=' + name)             
+        var json = await axios.delete('/delete?name=' + name)             
         return dispatch(
         {
             type: 'DELETE',
@@ -74,7 +74,7 @@ export function detailCountry(cca3)
     return async function (dispatch)
     {
         try {
-                const detCountry = await axios.get('http://localhost:3001/countries/' + cca3)
+                const detCountry = await axios.get('/countries/' + cca3)
                 return dispatch(
                 {
                     type: 'DETAIL_COUNTRY',
@@ -95,14 +95,14 @@ export function setDetailCountry()
 }
 export function createActivity(payload){
     return async function(dispatch){
-        const newactivity = axios.post('http://localhost:3001/activity', payload)
+        const newactivity = axios.post('/activity', payload)
        console.log(newactivity)
         return newactivity
     }
 };
 export function getActivities(){
     return async function(dispatch){
-       const getAct = await axios.get('http://localhost:3001/activity',{})
+       const getAct = await axios.get('/activity',{})
         return dispatch({
             type: 'GET_ACTIVITIES',
             payload: getAct.data
