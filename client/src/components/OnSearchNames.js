@@ -3,17 +3,10 @@ import { onSearchByName, deleteAct } from '../actions/index';
 import { useDispatch } from 'react-redux';
 import StyledForm from '../Style/StyledOnSearchNames'
 
-function validateOnSearch(name) {
-    const error = {};
-    if (!name || isNaN(name)=== false) { error.name = "error"; }
-    return error;
-}
 
 export default function OnSearchName({ setCurrentPage }) {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
-    const [error, setError] = useState({});
-
 
     function handleInput(c) {
         c.preventDefault()
@@ -22,27 +15,12 @@ export default function OnSearchName({ setCurrentPage }) {
     };
     const handleSubmit = (e) => {
         e.preventDefault()
-        setError(validateOnSearch(name))
-        const errores = validateOnSearch(name)
-        if(Object.values(errores).length !== 0) {alert('Se requiere de un nombre')}
-        else {
+
         dispatch(onSearchByName(name))
-    }}
+        setName('')
+        setCurrentPage(1)
+    }
 
-    // const handleSubmit = (e) => {
-
-    //     e.preventDefault()
-    //     setError(validateOnSearch(name))
-
-    //     console.log(error)
-    //     if(error.length){
-    //         alert ('Error')
-    //     } else{
-    //         dispatch(onSearchByName(name))
-    //         setName('')
-    //         setCurrentPage(1)
-    //     }
-    // }
     return (
         <StyledForm> 
             <input

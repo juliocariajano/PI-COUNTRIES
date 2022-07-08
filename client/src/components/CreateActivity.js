@@ -7,7 +7,7 @@ import NavBar from './NavBar'
 
 function validateCreateActivity(input) {
     const error = {};
-    if (!input.name || isNaN(input.name)=== false) { error.name = "Se requiere un nombre de actividad"; }
+    if (!input.name || isNaN(input.name)=== false || input.length>15) { error.name = "Se requiere un nombre de actividad o el tamaño de caraccteres es mayo a 15"; }
     if (!input.difficulty) { error.difficulty = "Dificultad debe ser del rango del 1 al 5" }
     if (!input.duration) { error.duration = "Duracion debe ser completado" }
     if (!input.season) { error.season = "Debe elegir una Temporada" }
