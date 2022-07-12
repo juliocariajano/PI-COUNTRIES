@@ -31,29 +31,16 @@ export function onSearchByName(name)
         })
     }
     catch(error){
-        if(error.response) alert(error.response.data)
-        window.location.href ='http://localhost:3000/home'
-    
-    }
-}};
-export function deleteAct(name)
-{
-    return async function(dispatch){
-    try{
-        var json = await axios.delete('/delete?name=' + name)             
-        return dispatch(
-        {
-            type: 'DELETE',
-            payload: json.data
-        })
+        if(error.response)
+        return dispatch({
+            payload: error.response.data
+        } )
         
-    }
-    catch(error){
-        if(error.response) alert(error.response.data)
         window.location.href ='http://localhost:3000/home'
     
     }
 }};
+
 export function filterContinent (payload)
 {
     return {

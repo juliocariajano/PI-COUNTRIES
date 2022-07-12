@@ -11,11 +11,13 @@ export default function Card({ id, imagen, name, continent, cca3 }) {
     <div className="name">
     <StyledLink to={`/home/${cca3}`}>
           <h1 >{name} </h1>
-        </StyledLink>
-    </div>
-    <div className="divIMG">
+          <div className="divIMG">
     <img className="mainIMG" src={imagen} alt="img not found" />
-    </div>  
+    </div> 
+        </StyledLink>
+    
+     
+    </div>
          
       <h4 >{continent}</h4>
     

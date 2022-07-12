@@ -29,11 +29,7 @@ function reducer (state=initialState, action){
                      allCountry: action.payload                                               
                  } 
        
-            case 'DELETE':
-                return{
-                    ...state,
-                    stateActivity: action.payload                                               
-                } 
+             
             case 'POST_ACTIVITY':
                 return {
                 ...state,

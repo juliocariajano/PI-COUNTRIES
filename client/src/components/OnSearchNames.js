@@ -7,6 +7,7 @@ import StyledForm from '../Style/StyledOnSearchNames'
 export default function OnSearchName({ setCurrentPage }) {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
+    
     function handleInput(c) {
         c.preventDefault()
         setName(c.target.value)
